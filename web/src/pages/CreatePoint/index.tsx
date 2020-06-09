@@ -138,6 +138,10 @@ const CreatePoint: React.FC = () => {
         data.append('longitude', String(longitude));
         data.append('items', items.join(','));
 
+        if(selectedFile) {
+            data.append('image', selectedFile);
+        }
+
         await api.post('points', data);
 
         alert('Ponto criado');
